@@ -7,6 +7,7 @@ use App\Repository\SongRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,9 +40,11 @@ class SongController extends AbstractController
     #[Route('/songs', name: 'songs_create', methods: ["POST"])]
     public function create(Request $request)
     {
+        $jsonData = json_decode($request->getContent(), true);
+
         $song = new Song();
-        $song->setName($request->request->get('name'));
-        $song->setLength($request->request->get('length'));
+        $song->setName($jsonData["name"]);
+        $song->setLength($jsonData["length"]);
 
         $this->entityManager->persist($song);
         $this->entityManager->flush();
