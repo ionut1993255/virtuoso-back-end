@@ -36,7 +36,9 @@ class NoteController extends AbstractController
     {
         $data = $this->noteRepository->getNotesOfSong($songId);
 
-        return $this->json(json_encode($data));
+        return new JsonResponse($data, 200, [
+            'Content-Type' => 'application/json'
+        ]);
     }
 
     #[Route('/notes', name: 'notes_create', methods: ["POST"])]

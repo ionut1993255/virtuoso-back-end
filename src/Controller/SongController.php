@@ -31,7 +31,9 @@ class SongController extends AbstractController
     {
         $data = $this->songRepository->findAll();
 
-        return $this->json(json_encode($data));
+        return new JsonResponse($data, 200, [
+            'Content-Type' => 'application/json'
+        ]);
     }
 
     #[Route('/songs', name: 'songs_create', methods: ["POST"])]
