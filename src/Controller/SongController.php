@@ -3,11 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Song;
+use App\Repository\NoteRepository;
 use App\Repository\SongRepository;
-use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ManagerRegistry;
-use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,12 +17,16 @@ class SongController extends AbstractController
     /** @var SongRepository */
     private SongRepository $songRepository;
 
+    /** @var NoteRepository */
+    private NoteRepository $noteRepository;
+
     private $entityManager;
 
-    public function __construct(EntityManagerInterface $entityManager, SongRepository $songRepository)
+    public function __construct(EntityManagerInterface $entityManager, SongRepository $songRepository, NoteRepository $noteRepository)
     {
         $this->entityManager = $entityManager;
         $this->songRepository = $songRepository;
+        $this->noteRepository = $noteRepository;
     }
 
     #[Route('/songs', name: 'songs_getall', methods: ["GET"])]

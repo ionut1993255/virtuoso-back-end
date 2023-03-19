@@ -13,7 +13,7 @@ class Note implements JsonSerializable
     #[ORM\Column]
     private int $id;
 
-    #[ORM\ManyToOne(targetEntity: Song::class, inversedBy: 'id')]
+    #[ORM\ManyToOne(targetEntity: Song::class, inversedBy: 'notes', cascade: ["persist", "remove"])]
     private Song $song;
 
     #[ORM\Column(length: 255)]

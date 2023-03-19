@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\SongRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
 
@@ -19,6 +20,9 @@ class Song implements JsonSerializable
 
     #[ORM\Column]
     private int $length;
+
+    #[ORM\OneToMany(targetEntity: Note::class, mappedBy: 'song', cascade: ["persist", "remove"])]
+    private Collection $notes;
 
     /**
      * Get the value of id
@@ -87,5 +91,25 @@ class Song implements JsonSerializable
             'name' => $this->getName(),
             'length' => $this->getLength()
         ];
+    }
+
+    /**
+     * Get the value of notes
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * Set the value of notes
+     *
+     * @return  self
+     */
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+
+        return $this;
     }
 }
