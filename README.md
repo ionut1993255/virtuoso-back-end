@@ -4,7 +4,7 @@ Welcome to my "Virtuoso Synthesizer" app !!!
 
 This is a complex app which I'm using to sing different songs with different instruments and to record and save my own musical compositions. I created the front-end with HTML, CSS and JavaScript. For the backend I created a RESTful API with the help of PHP and the Symfony framework. I made the connection to the MySQL database using the Doctrine library from Symfony. In this repository I put the back-end code. You can see the detached front-end by accessing this link: [https://github.com/ionut1993255/virtuoso-back-end](https://github.com/ionut1993255/virtuoso-front-end)
 
-To activate the back-end you must install some tools by typing the following commands in the terminal of your IDE (Integrated Development Environment):
+To activate the back-end functionalities you must install some tools by typing the following commands in the terminal of your IDE (Integrated Development Environment):
 
 Composer Installation:
 1. php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
