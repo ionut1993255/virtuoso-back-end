@@ -18,6 +18,6 @@ Here you can see a small presentation of the project:
 
 [Ilisei Ion - Presentation Virtuoso Synthesizer App.pptx](https://github.com/ionut1993255/virtuoso-back-end/files/12042688/Ilisei.Ion.-.Presentation.Virtuoso.Synthesizer.App.pptx)
 
-Check out the custom favicon *wink *wink
+Check out the custom favicon 😉
 
 Hope you enjoy !!!
